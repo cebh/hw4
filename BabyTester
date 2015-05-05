@@ -1,0 +1,14 @@
+package demo;
+import mediacomputation.BabyName;
+import mediacomputation.BabyNameGraph;
+import java.io.File;
+import java.io.FileNotFoundException;
+
+
+public class BabyTester {
+	public static void main(String[]args) throws FileNotFoundException
+	{
+		File file = new File("C:/Users/013316314/Downloads/babynamefile.txt");
+		BabyNameGraph graph = new BabyNameGraph();
+	}
+}
