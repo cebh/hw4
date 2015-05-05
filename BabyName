@@ -1,7 +1,4 @@
 package mediacomputation;
-import java.io.FileNotFoundException;
-import java.io.File;
-import java.util.Scanner;
 
 public class BabyName {
 	private int rank;
@@ -15,38 +12,23 @@ public class BabyName {
 		numberOfOccurrences = initialNumberOfOccurrences;
 	}
 	
-	public String FormatLine(String line)
+	public int getRank()
 	{
-		String newText = "";
-		for(int i = 0; i < line.length(); i++) {
-			if(line.charAt(i) == ',')
-			{
-			} else if(Character.isWhitespace(line.charAt(i))) {
-				newText += ',';
-			} else {
-				newText += line.charAt(i);
-			}
-		}
-		return newText;
+		return rank;
 	}
 	
-	public void readDataToArray(File file) throws FileNotFoundException
+	public String getName()
 	{
-		Scanner input = new Scanner(file);
-		BabyName[] babyBoyData = new BabyName[5];
-		BabyName[] babyGirlData = new BabyName[5];
-		int numberOfLines = 0;
-		
-		while(input.hasNextLine())
-		{
-			String line = input.nextLine();
-			String formattedLine = FormatLine(line);
-			String[] babyData = formattedLine.split(",");
-			BabyName babyBoy = new BabyName(Integer.parseInt(babyData[0]), babyData[1], Integer.parseInt(babyData[2]));
-			BabyName babyGirl = new BabyName(Integer.parseInt(babyData[0]), babyData[3], Integer.parseInt(babyData[4]));
-			babyBoyData[numberOfLines] = babyBoy;
-			babyGirlData[numberOfLines] = babyGirl;
-			numberOfLines++;
-		}
+		return name;
+	}
+	
+	public int getNumberOfOccurrences()
+	{
+		return numberOfOccurrences;
+	}
+	
+	public String toString()
+	{
+		return "[" + rank + "," + name + "," + numberOfOccurrences + "]";
 	}
 }
