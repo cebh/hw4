@@ -1,4 +1,4 @@
-package mediacomputation;
+package hw4;
 
 public class BabyName {
 	private int rank;
