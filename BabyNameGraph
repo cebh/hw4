@@ -1,14 +1,19 @@
-package mediacomputation;
+package hw4;
 import java.io.FileNotFoundException;
 import java.io.File;
 import java.util.Scanner;
 import java.util.ArrayList;
 
 public class BabyNameGraph {
+	public static void main(String[]args)
+	{
+		menu();
+	}
+	
 	private static Scanner in = new Scanner(System.in);
 	public BabyNameGraph()
 	{
-		menu();
+
 	}
 	
 	public static void menu()
@@ -52,6 +57,8 @@ public class BabyNameGraph {
 
 		} while (! userChoice.toUpperCase().equals("QUIT"));
 	}
+	
+	///// METHODS FOR MENU /////
 	public static String getMenuChoice() {
 		System.out.println("Choose an option.");
 		System.out.println("1: This option plots the names in a specified range of ranks");
@@ -92,7 +99,9 @@ public class BabyNameGraph {
 		System.out.println();
 		System.out.println();
 	}
-	public String FormatLine(String line)
+	
+	///// OTHER METHODS /////
+	public static String FormatLine(String line)
 	{
 		String newText = "";
 		for(int i = 0; i < line.length(); i++) {
@@ -107,11 +116,12 @@ public class BabyNameGraph {
 		return newText;
 	}
 
-	public void readDataToArray(File file) throws FileNotFoundException
+	private static ArrayList<BabyName> babyBoyData = new ArrayList<BabyName>();
+	private static ArrayList<BabyName> babyGirlData = new ArrayList<BabyName>();
+	
+	public static void readDataToArray(File file) throws FileNotFoundException
 	{
 		Scanner input = new Scanner(file);
-		ArrayList<BabyName> babyBoyData = new ArrayList<BabyName>();
-		ArrayList<BabyName> babyGirlData = new ArrayList<BabyName>();
 		input.nextLine();
 
 		while(input.hasNextLine())
